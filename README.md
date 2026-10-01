@@ -96,6 +96,8 @@ ls /opt/minecraft/mods                     # mods instalados
 - Fuente: `.mrpack` de Modrinth (Fabric 1.21.1, loader 0.19.5).
 - **16 mods server-side** descargados en el arranque desde Modrinth CDN.
 - Excluidos a propósito (client-only, romperían el server): iris, sodium, shaderpacks.
+- Mod local propio incluido vía `overrides/mods/`: Tunneling Enchantment Refurbished
+  1.3.3-1.21.1 (compilado localmente, no está en Modrinth).
 - Configs (`overrides/`) servidas desde S3. Incluye Open Parties and Claims con
   `maxPlayerClaimForceloads = 500` y la barrera de entrada de jugadores habilitada.
 
