@@ -1,0 +1,26 @@
+# =============================================================================
+# .gitignore — proyecto OpenTofu CherryFrost MC
+# =============================================================================
+
+# --- Claves privadas: NUNCA commitear ---
+*.pem
+*.pub
+master.pem
+master.pub
+
+# --- Estado de OpenTofu/Terraform (puede contener datos sensibles) ---
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+
+# --- Variables locales (pueden tener valores sensibles) ---
+*.tfvars
+!example.tfvars
+
+# --- Modpack extraído (contenido descargado, no es código fuente) ---
+modpack/
+
+# --- Sistema ---
+.DS_Store
