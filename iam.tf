@@ -36,6 +36,11 @@ data "aws_iam_policy_document" "s3_read" {
     actions   = ["s3:ListBucket"]
     resources = [aws_s3_bucket.config.arn]
   }
+  # Escribir/leer backups del mundo en el bucket de backups.
+  statement {
+    actions   = ["s3:PutObject", "s3:GetObject", "s3:ListBucket"]
+    resources = [aws_s3_bucket.backups.arn, "${aws_s3_bucket.backups.arn}/*"]
+  }
 }
 
 resource "aws_iam_role_policy" "s3_read" {
@@ -54,6 +59,28 @@ resource "aws_iam_role_policy" "s3_read" {
 resource "aws_iam_role_policy_attachment" "ssm" {
   role       = aws_iam_role.mc.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
+# -----------------------------------------------------------------------------
+# Permiso para que la INSTANCIA actualice su propio registro DNS (smp3) al
+# arrancar. Así el DNS se auto-actualiza sin que nadie corra `tofu apply`.
+# Limitado a la hosted zone de mcserver01.xyz.
+# -----------------------------------------------------------------------------
+data "aws_iam_policy_document" "route53_update" {
+  statement {
+    actions   = ["route53:ChangeResourceRecordSets"]
+    resources = ["arn:aws:route53:::hostedzone/${data.aws_route53_zone.main.zone_id}"]
+  }
+  statement {
+    actions   = ["route53:GetChange"]
+    resources = ["*"]
+  }
+}
+
+resource "aws_iam_role_policy" "route53_update" {
+  name   = "cherryfrost-mc-route53"
+  role   = aws_iam_role.mc.id
+  policy = data.aws_iam_policy_document.route53_update.json
 }
 
 # Instance profile: el envoltorio que conecta el rol a la instancia EC2.

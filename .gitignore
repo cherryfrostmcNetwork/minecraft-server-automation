@@ -15,9 +15,14 @@ master.pub
 .terraform.lock.hcl
 crash.log
 
+# --- Planes guardados (tofu plan -out): pueden contener valores sensibles ---
+*.tfplan
+*.plan
+tfplan
+
 # --- Variables locales (pueden tener valores sensibles) ---
 *.tfvars
-!example.tfvars
+!*.tfvars.example
 
 # --- Modpack extraído (contenido descargado, no es código fuente) ---
 modpack/

@@ -51,6 +51,9 @@ resource "aws_instance" "mc" {
     mc_ram_mb             = var.mc_ram_mb
     modpack_source        = var.modpack_source
     config_bucket         = aws_s3_bucket.config.id
+    rcon_password         = random_password.rcon.result
+    zone_id               = data.aws_route53_zone.main.zone_id
+    backups_bucket        = aws_s3_bucket.backups.id
   })
 
   tags = {

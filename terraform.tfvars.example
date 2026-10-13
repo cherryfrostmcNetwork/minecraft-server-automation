@@ -1,0 +1,14 @@
+# Plantilla de variables. Copiá este archivo a terraform.tfvars y completá
+# con tus valores reales:
+#     cp terraform.tfvars.example terraform.tfvars
+#
+# terraform.tfvars está en .gitignore y NO se sube al repositorio.
+
+# Dominio base gestionado en Route 53 (sin punto final).
+domain = "tu-dominio.xyz"
+
+# Subdominio para el servidor de juego (el FQDN sera <game_subdomain>.<domain>).
+game_subdomain = "smp3"
+
+# Subdominio para el sitio web (el FQDN sera <web_subdomain>.<domain>).
+web_subdomain = "play"

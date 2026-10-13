@@ -39,6 +39,17 @@ resource "aws_security_group" "mc" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # --- Simple Voice Chat: 24454/UDP (audio). Puerto separado, DEBE ser UDP ---
+  # Verificado: el mod relaya el audio por UDP/24454; sin esta regla el voice
+  # chat no funciona aunque el mod esté activo. (henkelmax/simple-voice-chat)
+  ingress {
+    description = "Simple Voice Chat (UDP)"
+    from_port   = 24454
+    to_port     = 24454
+    protocol    = "udp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   # --- SSH: 22/tcp RESTRINGIDO a tu IP (nunca al mundo) ---
   # TODO [SEGURIDAD]: var.allowed_ssh_cidr debe ser "TU_IP/32".
   #   Si queda vacío, este bloque dará error de validación en `tofu plan`,

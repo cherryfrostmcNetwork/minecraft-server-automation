@@ -89,3 +89,24 @@ variable "modpack_source" {
   type        = string
   default     = ""
 }
+
+# ----------------------------- Modpacks de descarga (cliente) ----------------
+# Rutas locales a los 3 formatos de modpack que se suben al bucket público.
+
+variable "pack_mrpack_path" {
+  description = "Ruta local al modpack .mrpack (Modrinth)."
+  type        = string
+  default     = "/Users/riosisraelg/Downloads/Soxdxdxdd.mrpack"
+}
+
+variable "pack_zip_path" {
+  description = "Ruta local al modpack .zip completo."
+  type        = string
+  default     = "/Users/riosisraelg/Downloads/Soxdxdxdd.zip"
+}
+
+variable "pack_curseforge_path" {
+  description = "Ruta local al modpack .zip de CurseForge."
+  type        = string
+  default     = "/Users/riosisraelg/Downloads/SoxdxdxddCurseforge.zip"
+}

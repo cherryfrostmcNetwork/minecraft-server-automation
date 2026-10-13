@@ -39,3 +39,17 @@ resource "aws_s3_object" "overrides" {
   source = "${path.module}/overrides.tar.gz"
   etag   = filemd5("${path.module}/overrides.tar.gz")
 }
+
+# -----------------------------------------------------------------------------
+# Password aleatoria para RCON (local). No queda en el código: se guarda en el
+# estado (que está en .gitignore). Consultala con: tofu output -raw rcon_password
+# -----------------------------------------------------------------------------
+resource "random_password" "rcon" {
+  length  = 24
+  special = false # evita caracteres que compliquen el server.properties
+}
+
+output "rcon_password" {
+  value     = random_password.rcon.result
+  sensitive = true
+}
