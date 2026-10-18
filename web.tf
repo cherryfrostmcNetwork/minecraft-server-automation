@@ -28,8 +28,8 @@ resource "aws_s3_bucket_public_access_block" "site" {
 resource "aws_s3_object" "index" {
   bucket       = aws_s3_bucket.site.id
   key          = "index.html"
-  source       = "${path.module}/../mcServer-staticWebsite/index.html"
-  etag         = filemd5("${path.module}/../mcServer-staticWebsite/index.html")
+  source       = "${path.module}/../website/mcServer-staticWebsite/index.html"
+  etag         = filemd5("${path.module}/../website/mcServer-staticWebsite/index.html")
   content_type = "text/html"
 }
 

@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Canvas Gradient -->
+    <radialGradient id="bg-canvas" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#24040e" />
+      <stop offset="50%" stop-color="#180209" />
+      <stop offset="100%" stop-color="#0e0105" />
+    </radialGradient>
+
+    <!-- Squircle Tile Base Gradient -->
+    <linearGradient id="tile-base" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#721434" />
+      <stop offset="25%" stop-color="#5e102b" />
+      <stop offset="55%" stop-color="#3c081a" />
+      <stop offset="85%" stop-color="#240410" />
+      <stop offset="100%" stop-color="#1a020b" />
+    </linearGradient>
+
+    <!-- Squircle Inner Luminous Radial Glow -->
+    <radialGradient id="tile-inner-glow" cx="46%" cy="28%" r="65%">
+      <stop offset="0%" stop-color="#bb2251" stop-opacity="0.52" />
+      <stop offset="40%" stop-color="#8c173c" stop-opacity="0.22" />
+      <stop offset="75%" stop-color="#45081c" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#1f030d" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Diagonal Glass Reflection Sheen -->
+    <linearGradient id="glass-sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22" />
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.09" />
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0.01" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Top Rim Inner Light -->
+    <linearGradient id="rim-inner-light" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Neon Pink Rim Border Gradient -->
+    <linearGradient id="rim-stroke" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffb3c7" />
+      <stop offset="40%" stop-color="#f29bb3" />
+      <stop offset="100%" stop-color="#cc6f88" />
+    </linearGradient>
+
+    <!-- Monogram JF Silver/White Gradient -->
+    <linearGradient id="jf-silver" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#f2f1f5" />
+      <stop offset="100%" stop-color="#c9c8d1" />
+    </linearGradient>
+
+    <!-- Upper Water Wave Gradient -->
+    <linearGradient id="wave-upper" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#d5d2dc" />
+    </linearGradient>
+
+    <!-- Lower Water Wave Gradient (Softer/Translucent) -->
+    <linearGradient id="wave-lower" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e2dfe8" stop-opacity="0.82" />
+      <stop offset="100%" stop-color="#b8b3c2" stop-opacity="0.65" />
+    </linearGradient>
+
+    <!-- Soft Drop Shadow for Monogram and Waves -->
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.38" />
+    </filter>
+
+    <!-- Soft Outer Pink Border Glow Filter -->
+    <filter id="pink-glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComponentTransfer in="blur" result="boost">
+        <feFuncA type="linear" slope="0.85" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="boost" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Lens Flare Radial Gradients (Horiz & Vert) -->
+    <radialGradient id="flare-h" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="25%" stop-color="#ffc7d5" stop-opacity="0.8" />
+      <stop offset="60%" stop-color="#f08da8" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#f08da8" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="flare-v" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="25%" stop-color="#ffc7d5" stop-opacity="0.8" />
+      <stop offset="60%" stop-color="#f08da8" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#f08da8" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Sparkle Lens Gradients -->
+    <linearGradient id="sparkle-v" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="sparkle-h" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <radialGradient id="sparkle-halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.8" />
+      <stop offset="65%" stop-color="#ffaec3" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffaec3" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Tile Clip Path (Rounded Square) -->
+    <clipPath id="squircle-clip">
+      <rect x="66" y="66" width="380" height="380" rx="84" ry="84" />
+    </clipPath>
+  </defs>
+
+  <!-- 1. Background -->
+  <rect width="512" height="512" fill="url(#bg-canvas)" />
+
+  <!-- 2. Soft Outer Pink Glow Behind Border -->
+  <rect x="66" y="66" width="380" height="380" rx="84" ry="84"
+        fill="none" stroke="#f091ab" stroke-width="8" filter="url(#pink-glow-filter)" opacity="0.35" />
+
+  <!-- 3. Squircle Tile Body (Rich Burgundy Layers) -->
+  <rect x="66" y="66" width="380" height="380" rx="84" ry="84" fill="url(#tile-base)" />
+  <rect x="66" y="66" width="380" height="380" rx="84" ry="84" fill="url(#tile-inner-glow)" />
+
+  <!-- 4. Glassmorphism Sheen & Highlights (Clipped inside Squircle) -->
+  <g clip-path="url(#squircle-clip)">
+    <!-- Diagonal Glass Highlight Sweep -->
+    <path d="M 66 66 L 396 66 C 255 130 130 255 66 396 Z" fill="url(#glass-sheen)" />
+    <!-- Subtle Top Rim Sheen -->
+    <rect x="66" y="66" width="380" height="40" fill="url(#rim-inner-light)" />
+  </g>
+
+  <!-- 5. Neon Pink Border Rim -->
+  <rect x="66" y="66" width="380" height="380" rx="84" ry="84"
+        fill="none" stroke="url(#rim-stroke)" stroke-width="2.4" />
+
+  <!-- 6. Four Border Edge Lens Flares (Signature Glass Reflections) -->
+  <!-- Top Edge Flare -->
+  <ellipse cx="256" cy="66" rx="42" ry="4" fill="url(#flare-h)" />
+  <ellipse cx="256" cy="66" rx="14" ry="1.8" fill="#ffffff" />
+
+  <!-- Bottom Edge Flare -->
+  <ellipse cx="256" cy="446" rx="42" ry="4" fill="url(#flare-h)" />
+  <ellipse cx="256" cy="446" rx="14" ry="1.8" fill="#ffffff" />
+
+  <!-- Left Edge Flare -->
+  <ellipse cx="66" cy="256" rx="4" ry="42" fill="url(#flare-v)" />
+  <ellipse cx="66" cy="256" rx="1.8" ry="14" fill="#ffffff" />
+
+  <!-- Right Edge Flare -->
+  <ellipse cx="446" cy="256" rx="4" ry="42" fill="url(#flare-v)" />
+  <ellipse cx="446" cy="256" rx="1.8" ry="14" fill="#ffffff" />
+
+  <!-- 7. Monogram Letters "JF" (Centered Vector Geometry with Drop Shadow) -->
+  <g fill="url(#jf-silver)" filter="url(#soft-shadow)">
+    <!-- Letter J -->
+    <!-- Height: 151 (157 to 308), Stem width: 33 (211 to 244), Outer R: 51, Inner R: 18 -->
+    <path d="M 211 157
+             L 244 157
+             L 244 257
+             A 51 51 0 0 1 142 257
+             L 142 262
+             L 175 262
+             L 175 257
+             A 18 18 0 0 0 211 257
+             Z" />
+
+    <!-- Letter F -->
+    <!-- Height: 151 (157 to 308), Stem width: 33 (269 to 302), Top arm: 99x25, Mid arm: 91x24 -->
+    <path d="M 269 157
+             L 368 157
+             L 368 182
+             L 302 182
+             L 302 222
+             L 360 222
+             L 360 246
+             L 302 246
+             L 302 308
+             L 269 308
+             Z" />
+  </g>
+
+  <!-- 8. Water Waves (Swimming Pool Sine Waves) -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#soft-shadow)">
+    <!-- Upper Wave (y center ~346, 3 smooth cycles, span: 152 to 336) -->
+    <path d="M 152 346
+             C 162 353, 172 353, 182 346
+             C 192 339, 202 339, 212 346
+             C 222 353, 232 353, 242 346
+             C 252 339, 262 339, 272 346
+             C 282 353, 292 353, 302 346
+             C 312 339, 324 339, 336 346"
+          stroke="url(#wave-upper)" stroke-width="6.5" />
+
+    <!-- Lower Wave (y center ~374, identical cadence) -->
+    <path d="M 152 374
+             C 162 381, 172 381, 182 374
+             C 192 367, 202 367, 212 374
+             C 222 381, 232 381, 242 374
+             C 252 367, 262 367, 272 374
+             C 282 381, 292 381, 302 374
+             C 312 367, 324 367, 336 374"
+          stroke="url(#wave-lower)" stroke-width="6.5" />
+  </g>
+
+  <!-- 9. 4-Point Sparkle Accent (Lower-Right of "F", centered at 354, 307) -->
+  <g transform="translate(354, 307)">
+    <!-- Radial Outer Flare Halo -->
+    <circle cx="0" cy="0" r="32" fill="url(#sparkle-halo)" opacity="0.65" />
+
+    <!-- Subtle Diagonal Cross Glare -->
+    <line x1="-11" y1="-11" x2="11" y2="11" stroke="#ffffff" stroke-width="1.2" opacity="0.45" />
+    <line x1="-11" y1="11" x2="11" y2="-11" stroke="#ffffff" stroke-width="1.2" opacity="0.45" />
+
+    <!-- Primary Vertical Needle Beam (Height 68) -->
+    <path d="M 0 -34 Q 1.2 -9 2.2 0 Q 1.2 9 0 34 Q -1.2 9 -2.2 0 Q -1.2 -9 0 -34 Z" fill="url(#sparkle-v)" />
+
+    <!-- Primary Horizontal Needle Beam (Width 68) -->
+    <path d="M -34 0 Q -9 1.2 0 2.2 Q 9 1.2 34 0 Q 9 -1.2 0 -2.2 Q -9 -1.2 -34 0 Z" fill="url(#sparkle-h)" />
+
+    <!-- Pure White Central Core Points -->
+    <circle cx="0" cy="0" r="2.8" fill="#ffffff" />
+    <circle cx="0" cy="0" r="7.5" fill="url(#sparkle-halo)" />
+  </g>
+</svg>

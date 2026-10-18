@@ -9,27 +9,20 @@
 #   - `templatefile()` inyecta nuestras variables al script .tpl.
 # =============================================================================
 
-# AMI más reciente de Amazon Linux 2023 (x86_64), propiedad de Amazon.
-data "aws_ami" "al2023" {
-  most_recent = true
-  owners      = ["amazon"]
-
-  filter {
-    name   = "name"
-    values = ["al2023-ami-2023.*-x86_64"]
-  }
-
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
+# AMI FIJADA al ID actual de la instancia. Antes se usaba `most_recent = true`,
+# pero eso forzaba recrear la instancia (y perder el mundo) cada vez que Amazon
+# publicaba una AMI nueva de AL2023. Fijar el ID evita ese drift destructivo.
+# Para actualizar la AMI a propósito en el futuro: cambiar este valor conscientemente.
+#   AMI anterior dinámica: al2023-ami-2023.*-x86_64 (most_recent)
+locals {
+  al2023_ami_id = "ami-03714e87ed2cafc78" # AL2023 x86_64 us-east-1 (en uso)
 }
 
 # -----------------------------------------------------------------------------
 # Instancia EC2.
 # -----------------------------------------------------------------------------
 resource "aws_instance" "mc" {
-  ami                    = data.aws_ami.al2023.id
+  ami                    = local.al2023_ami_id
   instance_type          = var.instance_type
   subnet_id              = data.aws_subnets.default.ids[0]
   vpc_security_group_ids = [aws_security_group.mc.id]
